@@ -9,22 +9,25 @@ body {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  background-image: url("images/backgroundimage.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 #container {
   display: flex;
-  background-color: black;
   height: 100%;
   align-items: center;
   flex-direction: column;
 }
 
 header {
-  border-bottom: 1px solid rgb(58, 58, 60);
+  border-bottom: 1px solid white;
 }
 
 .title {
-  color: gainsboro;
+  color: whitesmoke;
   font-size: 2.5rem;
   font-weight: bold;
   margin: 0.4rem 0 0.4rem 0;
