@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
     createSquares();
 
-    const guessedWords = [[]];
-    const availableSpace = 1;
+    let guessedWords = [[]];
+    let availableSpace = 1;
 
     const keys = document.querySelectorAll(".keyboard-row button");
 
@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
         keys[i].onclick = ({ target }) => {
           const letter = target.getAttribute("data-key");
 
-          updateGuessedWords(letter)
+          updateGuessedWords(letter);
         };
     }
 
@@ -28,9 +28,8 @@ document.addEventListener("DOMContentLoaded", () => {
             const availableSpaceEl = document.getElementById(String(1));
             availableSpace = availableSpace + 1;
 
-            availableSpace.textConent = letter;
+            availableSpaceEl.textContent = letter;
         }
-
     }
 
 
