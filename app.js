@@ -1,7 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
     createSquares();
 
-    const guessedWords = [[]]
+    const guessedWords = [[]];
+    const availableSpace = 1;
 
     const keys = document.querySelectorAll(".keyboard-row button");
 
