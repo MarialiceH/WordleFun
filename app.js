@@ -27,6 +27,23 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    function getTileColor(letter, index) {
+        const isCorrectLetter = word.includes(letter);
+
+        if (!isCorrectLetter) {
+            return "rgb(58, 58, 60)";
+        }
+
+        const letterInThatPosition = word.charAt(index);
+        const isCorrectPosition = letter = letterInThatPosition;
+
+        if (isCorrectPosition) {
+            return "rgb(83, 141, 78)";
+        }
+
+        return "rgb(181, 159, 59)";
+    }
+
     function handleSubmitWord() {
         const currentWordArr = getCurrentWordArr()
         if (currentWordArr.length !== 5) {
@@ -39,12 +56,16 @@ document.addEventListener("DOMContentLoaded", () => {
         const interval = 200;
         currentWordArr.forEach((letter, index) => {
             setTimeout(() => {
-                const tileColor = "rgb(58, 58, 60)"
+                const tileColor = getTileColor(letter, index);
 
                 const letterId = firstLetterId + index;
-                const letterEl = document.getElementById(letterId)
-            }, interval)
-        })
+                const letterEl = document.getElementById(letterId);
+                letterEl.classList.add("animate__flipInX");
+                letterEl.style = `background-color:${tileColor};border-color:${tileColor}`;
+            }, interval * index);
+        });
+
+        guessedWordCount += 1;
 
         if (currentWord === word) {
             window.alert("YAY! You got the right word!");
