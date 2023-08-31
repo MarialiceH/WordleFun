@@ -16,14 +16,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function getCurrentWordArr() {
         const numberOfGuessedWords = guessedWords.length
-        return guessedWords[numberOfGuessedWords - 1]
+        return guessedWords[numberOfGuessedWords - 1];
     }
 
     function updateGuessedWords(letter) {
-        const currentWordArr = getCurrentWordArr()
+        const currentWordArr = getCurrentWordArr();
 
         if (currentWordArr && currentWordArr.length < 5) {
-            currentWordArr.push(letter)
+            currentWordArr.push(letter);
+
+            const availableSpaceEl = document.getElementById(String(1));
+            availableSpace = availableSpace + 1;
+
+            availableSpace.textConent = letter;
         }
 
     }
