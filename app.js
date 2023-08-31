@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let availableSpace = 1;
 
     let word = "dairy";
+    let guessedWordCount = 0;
 
     const keys = document.querySelectorAll(".keyboard-row button");
 
@@ -32,7 +33,18 @@ document.addEventListener("DOMContentLoaded", () => {
           window.alert("Word must be 5 letters.");  
         }
 
-        const currentWord = currentWordArr.join('');
+        const currentWord = currentWordArr.join("");
+
+        const firstLetterId = guessedWordCount * 5 + 1;
+        const interval = 200;
+        currentWordArr.forEach((letter, index) => {
+            setTimeout(() => {
+                const tileColor = "rgb(58, 58, 60)"
+
+                const letterId = firstLetterId + index;
+                const letterEl = document.getElementById(letterId)
+            }, interval)
+        })
 
         if (currentWord === word) {
             window.alert("YAY! You got the right word!");
