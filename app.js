@@ -9,6 +9,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const keys = document.querySelectorAll(".keyboard-row button");
 
+    function getNewWord() {
+        fetch(
+          `https://wordsapiv1.p.rapidapi.com/words/?random=true&lettersMin=5&lettersMax=5`,
+          {
+            method: "GET",
+            headers: {
+              "x-rapidapi-host": "wordsapiv1.p.rapidapi.com",
+              "x-rapidapi-key": "f562b46b0cmsha4ff0c813d00012p1b3e8cjsn35c06a8232cb",
+            },
+          }
+        )
+          .then((response) => {
+            return response.json();
+          })
+          .then((res) => {
+            word = res.word;
+          })
+          .catch((err) => {
+            console.error(err);
+          });
+      }
+
     function getCurrentWordArr() {
         const numberOfGuessedWords = guessedWords.length
         return guessedWords[numberOfGuessedWords - 1];
